@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.DisplayName;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -36,8 +35,7 @@ public class MessageTest {
     }
 
     @Test
-    @DisplayName(value = "greet() prints 'Hello, World!' to stdout")
-    public void greet_whenCalled_printsHelloWorld() {
+    public void greet_printsHelloWorld() {
         Message.greet();
 
         assertEquals("Hello, World!\n", this.byteArrayOutputStream.toString());
