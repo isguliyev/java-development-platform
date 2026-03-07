@@ -17,7 +17,7 @@ public class MessageTest {
     private PrintStream standardOutputStream;
 
     @BeforeAll
-    public void setUpAll() {
+    void setUpAll() {
         this.byteArrayOutputStream = new ByteArrayOutputStream();
         this.standardOutputStream = System.out;
 
@@ -25,17 +25,17 @@ public class MessageTest {
     }
 
     @AfterAll
-    public void tearDownAll() {
+    void tearDownAll() {
         System.setOut(this.standardOutputStream);
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         this.byteArrayOutputStream.reset();
     }
 
     @Test
-    public void greet_printsHelloWorld() {
+    void greet_printsHelloWorld() {
         Message.greet();
 
         assertEquals("Hello, World!\n", this.byteArrayOutputStream.toString());
