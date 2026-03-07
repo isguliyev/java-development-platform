@@ -20,41 +20,41 @@ public class TicTacToeGridTest {
     private TicTacToeGrid ticTacToeGrid;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         this.ticTacToeGrid = new TicTacToeGrid(GRID_HEIGHT, GRID_WIDTH);
     }
 
     @Nested
-    public class ConstructorTest {
+    class ConstructorTest {
         @Test
-        public void constructor_throwsIllegalArgumentException_whenHeightIsLessThan3() {
+        void constructor_throwsIllegalArgumentException_whenHeightIsLessThan3() {
             assertThrows(IllegalArgumentException.class, () -> new TicTacToeGrid(2, 3));
         }
 
         @Test
-        public void constructor_throwsIllegalArgumentException_whenWidthIsLessThan3() {
+        void constructor_throwsIllegalArgumentException_whenWidthIsLessThan3() {
             assertThrows(IllegalArgumentException.class, () -> new TicTacToeGrid(3, 2));
         }
     }
 
     @Test
-    public void getState_returnsDefensiveCopyOfCurrentState() {
+    void getState_returnsDefensiveCopyOfCurrentState() {
         this.ticTacToeGrid.getState()[0][0] = Symbol.X;
 
         assertEquals(Symbol.EMPTY, this.ticTacToeGrid.getState()[0][0]);
     }
 
     @Nested
-    public class PlayTest {
+    class PlayTest {
         @Test
-        public void play_putsNextSymbolOnGrid_whenRowAndColumnAreValid() {
+        void play_putsNextSymbolOnGrid_whenRowAndColumnAreValid() {
             ticTacToeGrid.play(0, 0);
 
             assertEquals(Symbol.X, ticTacToeGrid.getState()[0][0]);
         }
 
         @Test
-        public void play_decrementsEmptySymbolCount_whenRowAndColumnAreValid() {
+        void play_decrementsEmptySymbolCount_whenRowAndColumnAreValid() {
             assertEquals(GRID_HEIGHT * GRID_WIDTH, ticTacToeGrid.getEmptySymbolCount());
 
             ticTacToeGrid.play(0, 0);
@@ -63,7 +63,7 @@ public class TicTacToeGridTest {
         }
 
         @Test
-        public void play_changesTurn_whenRowAndColumnAreValid() {
+        void play_changesTurn_whenRowAndColumnAreValid() {
             assertEquals(Symbol.X, ticTacToeGrid.getTurn());
 
             ticTacToeGrid.play(0, 0);
@@ -73,25 +73,25 @@ public class TicTacToeGridTest {
 
         @ParameterizedTest
         @ValueSource(ints = {-1, GRID_HEIGHT})
-        public void play_throwsIllegalArgumentException_whenRowIsOutOfBounds(int row) {
+        void play_throwsIllegalArgumentException_whenRowIsOutOfBounds(int row) {
             assertThrows(IllegalArgumentException.class, () -> ticTacToeGrid.play(row, 0));
         }
 
         @ParameterizedTest
         @ValueSource(ints = {-1, GRID_WIDTH})
-        public void play_throwsIllegalArgumentException_whenColumnIsOutOfBounds(int column) {
+        void play_throwsIllegalArgumentException_whenColumnIsOutOfBounds(int column) {
             assertThrows(IllegalArgumentException.class, () -> ticTacToeGrid.play(0, column));
         }
 
         @Test
-        public void play_throwsIllegalStateException_whenSymbolInGivenRowAndColumnIsNotEmpty() {
+        void play_throwsIllegalStateException_whenSymbolInGivenRowAndColumnIsNotEmpty() {
             ticTacToeGrid.play(0, 0);
 
             assertThrows(IllegalStateException.class, () -> ticTacToeGrid.play(0, 0));
         }
 
         @Test
-        public void play_throwsIllegalStateException_whenEmptySymbolCountIs0() {
+        void play_throwsIllegalStateException_whenEmptySymbolCountIs0() {
             for (int row = 0; row < GRID_HEIGHT; row++) {
                 for (int column = 0; column < GRID_WIDTH; column++) {
                     ticTacToeGrid.play(row, column);
@@ -103,26 +103,26 @@ public class TicTacToeGridTest {
     }
 
     @Nested
-    public class IsSymbolEmptyTest {
+    class IsSymbolEmptyTest {
         @ParameterizedTest
         @ValueSource(ints = {-1, GRID_HEIGHT})
-        public void isSymbolEmpty_throwsIllegalArgumentException_whenRowIsOutOfBounds(int row) {
+        void isSymbolEmpty_throwsIllegalArgumentException_whenRowIsOutOfBounds(int row) {
             assertThrows(IllegalArgumentException.class, () -> ticTacToeGrid.isSymbolEmpty(row, 0));
         }
 
         @ParameterizedTest
         @ValueSource(ints = {-1, GRID_WIDTH})
-        public void isSymbolEmpty_throwsIllegalArgumentException_whenColumnIsOutOfBounds(int column) {
+        void isSymbolEmpty_throwsIllegalArgumentException_whenColumnIsOutOfBounds(int column) {
             assertThrows(IllegalArgumentException.class, () -> ticTacToeGrid.isSymbolEmpty(0, column));
         }
 
         @Test
-        public void isSymbolEmpty_returnsTrue_whenSymbolInGivenRowAndColumnIsEmpty() {
+        void isSymbolEmpty_returnsTrue_whenSymbolInGivenRowAndColumnIsEmpty() {
             assertTrue(ticTacToeGrid.isSymbolEmpty(0, 0));
         }
 
         @Test
-        public void isSymbolEmpty_returnsFalse_whenSymbolInGivenRowAndColumnIsNotEmpty() {
+        void isSymbolEmpty_returnsFalse_whenSymbolInGivenRowAndColumnIsNotEmpty() {
             ticTacToeGrid.play(0, 0);
 
             assertFalse(ticTacToeGrid.isSymbolEmpty(0, 0));

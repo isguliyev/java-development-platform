@@ -14,26 +14,26 @@ public class RandomTicTacToePlayerTest {
     private TicTacToeGrid ticTacToeGrid;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         this.ticTacToeGrid = new TicTacToeGrid(GRID_HEIGHT, GRID_WIDTH);
     }
 
     @Nested
-    public class PlayTest {
+    class PlayTest {
         @Test
-        public void play_putsNextSymbolOnRandomEmptyGridCell_whenTicTacToeGridIsNotNull() {
+        void play_putsNextSymbolOnRandomEmptyGridCell_whenTicTacToeGridIsNotNull() {
             RandomTicTacToePlayer.play(ticTacToeGrid);
 
             assertEquals(GRID_HEIGHT * GRID_WIDTH - 1, ticTacToeGrid.getEmptySymbolCount());
         }
 
         @Test
-        public void play_throwsNullPointerException_whenTicTacToeGridIsNull() {
+        void play_throwsNullPointerException_whenTicTacToeGridIsNull() {
             assertThrows(NullPointerException.class, () -> RandomTicTacToePlayer.play(null));
         }
 
         @Test
-        public void play_throwsIllegalStateException_whenEmptySymbolCountOfTicTacToeGridIs0() {
+        void play_throwsIllegalStateException_whenEmptySymbolCountOfTicTacToeGridIs0() {
             for (int row = 0; row < GRID_HEIGHT; row++) {
                 for (int column = 0; column < GRID_WIDTH; column++) {
                     ticTacToeGrid.play(row, column);
@@ -48,21 +48,21 @@ public class RandomTicTacToePlayerTest {
     }
 
     @Nested
-    public class PlayUntilEndTest {
+    class PlayUntilEndTest {
         @Test
-        public void playUntilEnd_playsTicTacToeRandomlyUntilEnd_whenTicTacToeGridIsNotNull() {
+        void playUntilEnd_playsTicTacToeRandomlyUntilEnd_whenTicTacToeGridIsNotNull() {
             RandomTicTacToePlayer.playUntilEnd(ticTacToeGrid);
 
             assertEquals(0, ticTacToeGrid.getEmptySymbolCount());
         }
 
         @Test
-        public void playUntilEnd_throwsNullPointerException_whenTicTacToeGridIsNull() {
+        void playUntilEnd_throwsNullPointerException_whenTicTacToeGridIsNull() {
             assertThrows(NullPointerException.class, () -> RandomTicTacToePlayer.playUntilEnd(null));
         }
 
         @Test
-        public void playUntilEnd_throwsIllegalStateException_whenEmptySymbolCountOfTicTacToeGridIs0() {
+        void playUntilEnd_throwsIllegalStateException_whenEmptySymbolCountOfTicTacToeGridIs0() {
             for (int row = 0; row < GRID_HEIGHT; row++) {
                 for (int column = 0; column < GRID_WIDTH; column++) {
                     ticTacToeGrid.play(row, column);

@@ -22,7 +22,7 @@ public class TicTacToeGridPrinterTest {
     private PrintStream standardOutputStream;
 
     @BeforeAll
-    public void setUpAll() {
+    void setUpAll() {
         this.byteArrayOutputStream = new ByteArrayOutputStream();
         this.standardOutputStream = System.out;
 
@@ -30,12 +30,12 @@ public class TicTacToeGridPrinterTest {
     }
 
     @AfterAll
-    public void tearDownAll() {
+    void tearDownAll() {
         System.setOut(this.standardOutputStream);
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         this.byteArrayOutputStream.reset();
     }
 
@@ -67,7 +67,7 @@ public class TicTacToeGridPrinterTest {
             + "+---+---+---+\n', 4, 3"
         }
     )
-    public void printWithASCIICharacters_printsGridWithASCIICharacters_whenTicTacToeGridIsNotNull(
+    void printWithASCIICharacters_printsGridWithASCIICharacters_whenTicTacToeGridIsNotNull(
         String expectedOutput,
         int height,
         int width
@@ -84,7 +84,7 @@ public class TicTacToeGridPrinterTest {
     }
 
     @Test
-    public void printWithASCIICharacters_throwsNullPointerException_whenTicTacToeGridIsNull() {
+    void printWithASCIICharacters_throwsNullPointerException_whenTicTacToeGridIsNull() {
         assertThrows(
             NullPointerException.class,
             () -> TicTacToeGridPrinter.printWithASCIICharacters(null)
