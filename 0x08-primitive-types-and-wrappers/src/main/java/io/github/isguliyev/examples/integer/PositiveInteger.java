@@ -32,7 +32,7 @@ public class PositiveInteger {
     }
 
     public void setValue(int value) {
-        if (value < 0) {
+        if (value <= 0) {
             throw new IllegalArgumentException("Value must be positive integer");
         }
 
