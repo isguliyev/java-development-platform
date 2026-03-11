@@ -26,7 +26,7 @@ public class Order {
             }
         }
 
-        this.cookies.removeAll(flavorsToRemove);
+        this.cookieOrders.removeAll(flavorsToRemove);
 
         return boxesRemoved;
     }
@@ -42,7 +42,7 @@ public class Order {
     }
 
     public void addCookieOrder(CookieOrder cookieOrder) {
-        this.cookies.add(cookieOrder);
+        this.cookieOrders.add(cookieOrder);
     }
 
     public List<CookieOrder> getCookieOrders() {
