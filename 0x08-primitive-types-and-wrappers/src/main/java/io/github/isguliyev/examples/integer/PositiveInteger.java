@@ -3,7 +3,9 @@ package io.github.isguliyev.examples.integer;
 public class PositiveInteger {
     private int value;
 
-    public PositiveInteger() {}
+    public PositiveInteger() {
+        this.value = 1;
+    }
 
     public PositiveInteger(int value) {
         setValue(value);
