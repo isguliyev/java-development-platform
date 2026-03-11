@@ -35,7 +35,7 @@ public class Rectangle extends GeometricShape {
     }
 
     public void setHeight(double height) {
-        if (height <= 0) {
+        if (height <= 0.0d) {
             throw new IllegalArgumentException("Height must be positive");
         }
 
@@ -43,7 +43,7 @@ public class Rectangle extends GeometricShape {
     }
 
     public void setWidth(double width) {
-        if (width <= 0) {
+        if (width <= 0.0d) {
             throw new IllegalArgumentException("Width must be positive");
         }
 

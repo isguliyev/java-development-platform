@@ -34,16 +34,16 @@ public class RectangleTest {
     @Test
     void setWidth_throwsIllegalArgumentException_whenWidthIsNotPositive() {
         assertAll(
-            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setWidth(0)),
-            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setWidth(-1))
+            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setWidth(0.0d)),
+            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setWidth(-1.0d))
         );
     }
 
     @Test
     void setHeight_throwsIllegalArgumentException_whenHeightIsNotPositive() {
         assertAll(
-            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setHeight(0)),
-            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setHeight(-1))
+            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setHeight(0.0d)),
+            () -> assertThrows(IllegalArgumentException.class, () -> this.rectangle.setHeight(-1.0d))
         );
     }
 

@@ -30,8 +30,8 @@ public class SquareTest {
     @Test
     void constructor_throwsIllegalArgumentException_whenSideIsNotPositive() {
         assertAll(
-            () -> assertThrows(IllegalArgumentException.class, () -> new Square(0)),
-            () -> assertThrows(IllegalArgumentException.class, () -> new Square(-1))
+            () -> assertThrows(IllegalArgumentException.class, () -> new Square(0.0d)),
+            () -> assertThrows(IllegalArgumentException.class, () -> new Square(-1.0d))
         );
     }
 
@@ -50,8 +50,8 @@ public class SquareTest {
     @Test
     void setSide_throwsIllegalArgumentException_whenSideIsNotPositive() {
         assertAll(
-            () -> assertThrows(IllegalArgumentException.class, () -> this.square.setSide(0)),
-            () -> assertThrows(IllegalArgumentException.class, () -> this.square.setSide(-1))
+            () -> assertThrows(IllegalArgumentException.class, () -> this.square.setSide(0.0d)),
+            () -> assertThrows(IllegalArgumentException.class, () -> this.square.setSide(-1.0d))
         );
     }
 }
