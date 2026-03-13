@@ -48,11 +48,13 @@ public class Product {
             return false;
         }
 
-        return Objects.equals(this.name, product.name)
-            && Objects.equals(this.price, product.price)
-            && this.weight == product.weight
-            && this.stockQuantity == product.stockQuantity
-            && this.type == product.type;
+        final boolean areNamesEqual = Objects.equals(this.name, product.name);
+        final boolean arePricesEqual = Objects.equals(this.price, product.price);
+        final boolean areWeightsEqual = this.weight == product.weight;
+        final boolean areStockQuantitiesEqual = this.stockQuantity == product.stockQuantity;
+        final boolean areTypesEqual = this.type == product.type;
+
+        return areNamesEqual && arePricesEqual && areWeightsEqual && areStockQuantitiesEqual && areTypesEqual;
     }
 
     @Override

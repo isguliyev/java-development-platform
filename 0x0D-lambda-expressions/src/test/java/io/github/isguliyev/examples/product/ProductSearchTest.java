@@ -25,8 +25,7 @@ public class ProductSearchTest {
 
         final List<Product> actualProducts = ProductSearch.filter(
             products,
-            (product) ->
-            product.getType() == ProductType.ELECTRONIC || product.getType() == ProductType.KITCHEN
+            (product) -> product.getType() == ProductType.ELECTRONIC || product.getType() == ProductType.KITCHEN
         );
 
         assertEquals(expectedProducts, actualProducts);
