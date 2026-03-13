@@ -23,9 +23,11 @@ public class Contact {
             return false;
         }
 
-        return Objects.equals(this.name, contact.name)
-            && Objects.equals(this.phoneNumber, contact.phoneNumber)
-            && this.type == contact.type;
+        final boolean areNamesEqual = Objects.equals(this.name, contact.name);
+        final boolean arePhoneNumbersEqual = Objects.equals(this.phoneNumber, contact.phoneNumber);
+        final boolean areTypesEqual = this.type == contact.type;;
+
+        return areNamesEqual && arePhoneNumbersEqual && areTypesEqual;
     }
 
     @Override
