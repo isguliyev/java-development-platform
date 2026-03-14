@@ -12,9 +12,9 @@ public class Mobile {
     }
 
     public Optional<Contact> findContactByName(String name) {
-        return this.contacts.stream().filter(
-            (contact) -> contact.getName().equals(name)
-        ).findFirst();
+        return this.contacts.stream()
+            .filter((contact) -> contact.getName().equals(name))
+            .findFirst();
     }
 
     public void addContact(Contact contact) {
