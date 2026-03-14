@@ -145,15 +145,15 @@ public class QueryTest {
         final Map<String, Set<AnimeCharacter>> expectedResult = Map.ofEntries(
             Map.entry(
                 "One Piece",
-                this.animeCharacters.stream().filter(
-                    (animeCharacter) -> animeCharacter.getAnimeName().equals("One Piece")
-                ).collect(toSet())
+                this.animeCharacters.stream()
+                    .filter((animeCharacter) -> animeCharacter.getAnimeName().equals("One Piece"))
+                    .collect(toSet())
             ),
             Map.entry(
                 "Naruto",
-                this.animeCharacters.stream().filter(
-                    (animeCharacter) -> animeCharacter.getAnimeName().equals("Naruto")
-                ).collect(toSet())
+                this.animeCharacters.stream()
+                    .filter((animeCharacter) -> animeCharacter.getAnimeName().equals("Naruto"))
+                    .collect(toSet())
             )
         );
 
@@ -186,9 +186,9 @@ public class QueryTest {
 
         for (AnimeCharacter animeCharacter : this.animeCharacters) {
             for (String ability : animeCharacter.getAbilities()) {
-                expectedResult.computeIfAbsent(
-                    ability, key -> new HashSet<String>()
-                ).add(animeCharacter.getName());
+                expectedResult
+                    .computeIfAbsent(ability, key -> new HashSet<String>())
+                    .add(animeCharacter.getName());
             }
         }
 

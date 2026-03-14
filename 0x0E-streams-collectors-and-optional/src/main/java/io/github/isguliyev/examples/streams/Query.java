@@ -15,16 +15,14 @@ public class Query {
     }
 
     public static List<AnimeCharacter> filterAnimeCharactersByAnimeName(List<AnimeCharacter> animeCharacters, String animeName) {
-        return animeCharacters.stream().filter(
-            (animeCharacter) -> Objects.equals(animeCharacter.getAnimeName(), animeName)
-        ).toList();
+        return animeCharacters.stream()
+            .filter((animeCharacter) -> Objects.equals(animeCharacter.getAnimeName(), animeName))
+            .toList();
     }
 
     public static Map<String, Set<String>> groupAnimeCharacterNamesByAbility(List<AnimeCharacter> animeCharacters) {
-        return animeCharacters.stream().flatMap(
-            (character) -> character.getAbilities().stream().map(ability -> Map.entry(ability, character.getName()))
-        ).collect(
-            groupingBy(Map.Entry::getKey, mapping(Map.Entry::getValue, toSet()))
-        );
+        return animeCharacters.stream()
+            .flatMap((character) -> character.getAbilities().stream().map(ability -> Map.entry(ability, character.getName())))
+            .collect(groupingBy(Map.Entry::getKey, mapping(Map.Entry::getValue, toSet())));
     }
 }
