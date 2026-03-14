@@ -18,10 +18,9 @@ public class DalseyHillblomLynnTest {
         final BigDecimal price = BigDecimal.ONE;
 
         final BigDecimal expectedShippingCost = price.multiply(this.shippingRateBelowThreshold);
-        final BigDecimal actualShippingCost = this.dalseyHillblomLynn.calculateShipping(
-            weightThresholdGrams.divide(BigDecimal.valueOf(2L)),
-            price
-        ).getShippingCost();
+        final BigDecimal actualShippingCost = this.dalseyHillblomLynn
+            .calculateShipping(weightThresholdGrams.divide(BigDecimal.valueOf(2L)), price)
+            .getShippingCost();
 
         assertEquals(expectedShippingCost, actualShippingCost);
     }
@@ -31,10 +30,9 @@ public class DalseyHillblomLynnTest {
         final BigDecimal price = BigDecimal.ONE;
 
         final BigDecimal expectedShippingCost = price.multiply(this.shippingRateAboveThreshold);
-        final BigDecimal actualShippingCost = dalseyHillblomLynn.calculateShipping(
-            weightThresholdGrams.multiply(BigDecimal.valueOf(2L)),
-            price
-        ).getShippingCost();
+        final BigDecimal actualShippingCost = dalseyHillblomLynn
+            .calculateShipping(weightThresholdGrams.multiply(BigDecimal.valueOf(2L)), price)
+            .getShippingCost();
 
         assertEquals(expectedShippingCost, actualShippingCost);
     }
@@ -45,10 +43,9 @@ public class DalseyHillblomLynnTest {
         final BigDecimal price = BigDecimal.ONE;
 
         final BigDecimal expectedShippingCost = price.multiply(this.shippingRateBelowThreshold);
-        final BigDecimal actualShippingCost = dalseyHillblomLynn.calculateShipping(
-            weightThresholdGrams,
-            price
-        ).getShippingCost();
+        final BigDecimal actualShippingCost = dalseyHillblomLynn
+            .calculateShipping(weightThresholdGrams, price)
+            .getShippingCost();
 
         assertEquals(expectedShippingCost, actualShippingCost);
     }

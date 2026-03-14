@@ -18,10 +18,9 @@ public class UnitedParcelServiceTest {
         final BigDecimal price = BigDecimal.ONE;
 
         final BigDecimal expectedShippingCost = price.multiply(this.shippingRateBelowThreshold);
-        final BigDecimal actualShippingCost = this.unitedParcelService.calculateShipping(
-            weightThresholdGrams.divide(BigDecimal.valueOf(2L)),
-            price
-        ).getShippingCost();
+        final BigDecimal actualShippingCost = this.unitedParcelService
+            .calculateShipping(weightThresholdGrams.divide(BigDecimal.valueOf(2L)), price)
+            .getShippingCost();
 
         assertEquals(expectedShippingCost, actualShippingCost);
     }
@@ -31,10 +30,9 @@ public class UnitedParcelServiceTest {
         final BigDecimal price = BigDecimal.ONE;
 
         final BigDecimal expectedShippingCost = price.multiply(this.shippingRateAboveThreshold);
-        final BigDecimal actualShippingCost = this.unitedParcelService.calculateShipping(
-            weightThresholdGrams.multiply(BigDecimal.valueOf(2L)),
-            price
-        ).getShippingCost();
+        final BigDecimal actualShippingCost = this.unitedParcelService
+            .calculateShipping(weightThresholdGrams.multiply(BigDecimal.valueOf(2L)), price)
+            .getShippingCost();
 
         assertEquals(expectedShippingCost, actualShippingCost);
     }
@@ -44,10 +42,9 @@ public class UnitedParcelServiceTest {
         final BigDecimal price = BigDecimal.ONE;
 
         final BigDecimal expectedShippingCost = price.multiply(this.shippingRateBelowThreshold);
-        final BigDecimal actualShippingCost = this.unitedParcelService.calculateShipping(
-            weightThresholdGrams,
-            price
-        ).getShippingCost();
+        final BigDecimal actualShippingCost = this.unitedParcelService
+            .calculateShipping(weightThresholdGrams, price)
+            .getShippingCost();
 
         assertEquals(expectedShippingCost, actualShippingCost);
     }
