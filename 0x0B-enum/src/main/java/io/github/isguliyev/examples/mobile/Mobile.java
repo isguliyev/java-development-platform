@@ -19,7 +19,7 @@ public class Mobile {
 
     public void addContact(Contact contact) {
         if (this.contacts.contains(contact)) {
-            throw new IllegalArgumentException("Contact already exists");
+            throw new IllegalArgumentException("Failed to add contact: contact already exists");
         }
 
         this.contacts.add(contact);
@@ -27,11 +27,11 @@ public class Mobile {
 
     public void replaceContact(Contact oldContact, Contact newContact) {
         if (!this.contacts.contains(oldContact)) {
-            throw new IllegalArgumentException("Old contact does not exist");
+            throw new IllegalArgumentException("Failed to replace contact: old contact does not exists");
         }
 
         if (this.contacts.contains(newContact)) {
-            throw new IllegalArgumentException("New contact already exists");
+            throw new IllegalArgumentException("Failed to replace contact: new contact already exists");
         }
 
         this.contacts.set(this.contacts.indexOf(oldContact), newContact);
@@ -39,7 +39,7 @@ public class Mobile {
 
     public void deleteContact(Contact contact) {
         if (!this.contacts.contains(contact)) {
-            throw new IllegalArgumentException("Contact does not exists");
+            throw new IllegalArgumentException("Failed to delete contact: contact does not exists");
         }
 
         this.contacts.remove(contact);

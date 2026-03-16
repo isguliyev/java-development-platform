@@ -5,13 +5,13 @@ import java.util.Random;
 public class RandomTicTacToePlayer {
     public static void play(TicTacToeGrid ticTacToeGrid) {
         if (ticTacToeGrid == null) {
-            throw new NullPointerException("TicTacToeGrid must not be null");
+            throw new NullPointerException("Failed to play: tic tac toe gird is null");
         }
 
         final int emptySymbolCount = ticTacToeGrid.getEmptySymbolCount();
 
         if (emptySymbolCount == 0) {
-            throw new IllegalStateException("All cells are already occupied");
+            throw new IllegalStateException("Failed to play: all cells are already occupied");
         }
 
         final int height = ticTacToeGrid.getHeight();
@@ -38,13 +38,13 @@ public class RandomTicTacToePlayer {
 
     public static void playUntilEnd(TicTacToeGrid ticTacToeGrid) {
         if (ticTacToeGrid == null) {
-            throw new NullPointerException("TicTacToeGrid must not be null");
+            throw new NullPointerException("Failed to play until end: tic tac toe gird is null");
         }
 
         final int emptySymbolCount = ticTacToeGrid.getEmptySymbolCount();
 
         if (emptySymbolCount == 0) {
-            throw new IllegalStateException("All cells are already occupied");
+            throw new IllegalStateException("Failed to play until end: all cells are already occupied");
         }
 
         while (ticTacToeGrid.getEmptySymbolCount() > 0) {

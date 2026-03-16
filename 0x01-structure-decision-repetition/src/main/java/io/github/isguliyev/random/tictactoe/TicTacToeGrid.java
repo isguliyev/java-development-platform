@@ -9,11 +9,11 @@ public class TicTacToeGrid {
 
     public TicTacToeGrid(int height, int width) {
         if (height < 3) {
-            throw new IllegalArgumentException("Height must be at least 3");
+            throw new IllegalArgumentException("Failed to initialize tic tac toe grid: height is less than 3");
         }
 
         if (width < 3) {
-            throw new IllegalArgumentException("Width must be at least 3");
+            throw new IllegalArgumentException("Failed to initialize tic tac toe grid: width is less than 3");
         }
 
         this.height = height;
@@ -34,11 +34,11 @@ public class TicTacToeGrid {
         this.validateBounds(row, column);
 
         if (this.emptySymbolCount == 0) {
-            throw new IllegalStateException("All cells are already occupied");
+            throw new IllegalStateException("Failed to play: all cells are already occupied");
         }
 
         if (this.state[row][column] != Symbol.EMPTY) {
-            throw new IllegalStateException("Cell is already occupied");
+            throw new IllegalStateException("Failed to play: cell is already occupied");
         }
 
         this.state[row][column] = this.turn;
@@ -55,11 +55,11 @@ public class TicTacToeGrid {
 
     private void validateBounds(int row, int column) {
         if (row < 0 || row >= this.height) {
-            throw new IllegalArgumentException("Row index out of bounds");
+            throw new IllegalArgumentException("Failed to validate bounds: row index out of bounds");
         }
 
         if (column < 0 || column >= this.width) {
-            throw new IllegalArgumentException("Column index out of bounds");
+            throw new IllegalArgumentException("Failed to validate bounds: column index out of bounds");
         }
     }
 

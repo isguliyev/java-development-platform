@@ -3,7 +3,7 @@ package io.github.isguliyev.random.tictactoe;
 public class TicTacToeGridPrinter {
     public static void printWithASCIICharacters(TicTacToeGrid ticTacToeGrid) {
         if (ticTacToeGrid == null) {
-            throw new NullPointerException("TicTacToeGrid must not be null");
+            throw new NullPointerException("Failed to print with ASCII characters: tic tac toe grid is null");
         }
 
         final String X = " X ";

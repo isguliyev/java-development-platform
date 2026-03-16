@@ -10,11 +10,11 @@ public class GameCharacter {
 
     public GameCharacter(String name, int currentHealth) {
         if (name == null) {
-            throw new NullPointerException("Name must not be null");
+            throw new NullPointerException("Failed to initialize game character: name is null");
         }
 
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("Name must not be empty");
+            throw new IllegalArgumentException("Failed to initialize game character: name is empty");
         }
 
         this.name = name;
@@ -34,7 +34,7 @@ public class GameCharacter {
 
     public void takeDamage(int damageAmount) {
         if (damageAmount < 0) {
-            throw new IllegalArgumentException("Damage amount must not be negative");
+            throw new IllegalArgumentException("Failed to take damage: damage amount is negative");
         }
 
         setCurrentHealth(this.currentHealth - damageAmount);
@@ -42,7 +42,7 @@ public class GameCharacter {
 
     public void receiveHealing(int healingAmount) {
         if (healingAmount < 0) {
-            throw new IllegalArgumentException("Healing amount must not be negative");
+            throw new IllegalArgumentException("Failed to receive healing: healing amount is negative");
         }
 
         setCurrentHealth(this.currentHealth + healingAmount);

@@ -36,7 +36,7 @@ public class Rectangle extends GeometricShape {
 
     public void setHeight(double height) {
         if (height <= 0.0d) {
-            throw new IllegalArgumentException("Height must be positive");
+            throw new IllegalArgumentException("Failed to set height: height is not positive");
         }
 
         this.height = height;
@@ -44,7 +44,7 @@ public class Rectangle extends GeometricShape {
 
     public void setWidth(double width) {
         if (width <= 0.0d) {
-            throw new IllegalArgumentException("Width must be positive");
+            throw new IllegalArgumentException("Failed to set width: width is not positive");
         }
 
         this.width = width;

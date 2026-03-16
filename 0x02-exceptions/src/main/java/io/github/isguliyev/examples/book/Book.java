@@ -9,23 +9,23 @@ public class Book {
 
     public Book(String title, String author, BigDecimal price) {
         if (title == null) {
-            throw new NullPointerException("Title must not be null");
+            throw new NullPointerException("Failed to initialize book: title is null");
         }
 
         if (title.isEmpty()) {
-            throw new IllegalArgumentException("Title must not be empty");
+            throw new IllegalArgumentException("Failed to initialize book: title is empty");
         }
 
         if (author == null) {
-            throw new NullPointerException("Author must not be null");
+            throw new NullPointerException("Failed to initialize book: author is null");
         }
 
         if (author.isEmpty()) {
-            throw new IllegalArgumentException("Author must not be empty");
+            throw new IllegalArgumentException("Failed to initialize book: author is empty");
         }
 
         if (price.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("Price must not be less than 0");
+            throw new IllegalArgumentException("Failed to initialize book: price is negative");
         }
 
         this.title = title;

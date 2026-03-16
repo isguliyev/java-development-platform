@@ -35,7 +35,7 @@ public class PositiveInteger {
 
     public void setValue(int value) {
         if (value <= 0) {
-            throw new IllegalArgumentException("Value must be positive integer");
+            throw new IllegalArgumentException("Failed to set value: value is not positive");
         }
 
         this.value = value;

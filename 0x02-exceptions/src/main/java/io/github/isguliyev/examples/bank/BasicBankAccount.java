@@ -20,7 +20,7 @@ public class BasicBankAccount {
 
     public void deposit(BigDecimal depositAmount) {
         if (depositAmount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new InvalidOperationException("Deposit amount must be greater than 0");
+            throw new InvalidOperationException("Failed to deposit: deposit amount is not positive");
         }
 
         this.balance = this.balance.add(depositAmount, this.mathContext);
@@ -28,11 +28,11 @@ public class BasicBankAccount {
 
     public void withdraw(BigDecimal withdrawalAmount) {
         if (withdrawalAmount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new InvalidOperationException("Withdrawal amount must be greater than 0");
+            throw new InvalidOperationException("Failed to withdraw: withdrawal amount is not positive");
         }
 
         if (withdrawalAmount.compareTo(this.balance) > 0) {
-            throw new InvalidOperationException("Withdrawal amount must be greater than balance");
+            throw new InvalidOperationException("Failed to withdraw: withdrawal amount is greater than balance");
         }
 
         this.balance = this.balance.subtract(withdrawalAmount, this.mathContext);
