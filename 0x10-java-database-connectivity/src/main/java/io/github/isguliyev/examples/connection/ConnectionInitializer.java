@@ -5,10 +5,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ConnectionInitializer {
-    private static final String SQLITE_URL_PREFIX = "jdbc:sqlite:";
-
     public static Connection getSQLiteConnection(String databaseName) {
-        final String sqliteConnectionUrl = SQLITE_URL_PREFIX + databaseName;
+        final String sqliteConnectionUrl = String.format("jdbc:sqlite:%s?foreign_keys=on", databaseName);
 
         try {
             return DriverManager.getConnection(sqliteConnectionUrl);
