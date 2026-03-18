@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 import java.io.IOException;
-import java.io.File;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -123,7 +122,7 @@ public class PirateDAOTest {
         }
 
         @Test
-        void create_throwsNullPointerException_whenConnectionOrPirateIsNull() throws SQLException {
+        void create_throwsNullPointerException_whenConnectionOrPirateIsNull() {
             assertAll(
                 () -> assertThrows(NullPointerException.class, () -> pirateDAO.create(null, pirate)),
                 () -> assertThrows(NullPointerException.class, () -> pirateDAO.create(connection, null))
@@ -188,7 +187,7 @@ public class PirateDAOTest {
         }
 
         @Test
-        void findAll_throwsNullPointerException_whenConnectionIsNull() throws SQLException {
+        void findAll_throwsNullPointerException_whenConnectionIsNull() {
             assertThrows(NullPointerException.class, () -> pirateDAO.findAll(null));
         }
     }
@@ -226,7 +225,7 @@ public class PirateDAOTest {
         }
 
         @Test
-        void update_throwsNullPointerException_whenConnectionOrPirateIsNull() throws SQLException {
+        void update_throwsNullPointerException_whenConnectionOrPirateIsNull() {
             assertAll(
                 () -> assertThrows(NullPointerException.class, () -> pirateDAO.update(null, pirate)),
                 () -> assertThrows(NullPointerException.class, () -> pirateDAO.update(connection, null))
@@ -234,7 +233,7 @@ public class PirateDAOTest {
         }
 
         @Test
-        void update_throwsIllegalArgumentException_whenPirateIdIsNull() throws SQLException {
+        void update_throwsIllegalArgumentException_whenPirateIdIsNull() {
             assertThrows(IllegalArgumentException.class, () -> pirateDAO.update(connection, pirate));
         }
     }
