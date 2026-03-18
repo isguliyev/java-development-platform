@@ -1,24 +1,29 @@
 package io.github.isguliyev.examples.connection;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Files;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ConnectionInitializerTest {
     private static final String DATABASE_NAME = "test.db";
-    private final File databaseFile = new File(DATABASE_NAME);
+
+    @BeforeEach
+    void setUp() throws IOException {
+        Files.deleteIfExists(Path.of(DATABASE_NAME));
+    }
 
     @AfterEach
-    void tearDown() {
-        if (this.databaseFile.exists()) {
-            this.databaseFile.delete();
-        }
+    void tearDown() throws IOException {
+        Files.deleteIfExists(Path.of(DATABASE_NAME));
     }
 
     @Test
@@ -31,7 +36,7 @@ public class ConnectionInitializerTest {
     @Test
     void getSQLiteConnection_createsDatabaseFile() throws SQLException {
         try (Connection connection = ConnectionInitializer.getSQLiteConnection(DATABASE_NAME)) {
-            assertTrue(this.databaseFile.exists());
+            assertTrue(Files.exists(Path.of(DATABASE_NAME)));
         }
     }
 }
